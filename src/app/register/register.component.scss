@@ -1,0 +1,25 @@
+.example-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.registration-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.field {
+  width: 100%;
+}
+
+.btn-ctr{
+  justify-content: center;
+    display: flex;
+}
+
+.alert-danger span{
+  color: red;
+  font-size: 12px;
+}

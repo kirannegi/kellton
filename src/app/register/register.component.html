@@ -1,0 +1,59 @@
+<div class="example-container">
+  <div class="form-container">
+    <h1>REGISTRATION</h1>
+    <form [formGroup]="registrationForm" class="registration-form" (submit)="submit()">
+      <div class="field" appearance="fill">
+        <input formControlName="firstName" type="text" required placeholder="First Name" />
+        <div *ngIf="registrationForm.get('firstName').invalid && (registrationForm.get('firstName').dirty || registrationForm.get('firstName').touched)" class="alert alert-danger">
+          <span *ngIf="registrationForm.get('firstName').errors?.required">
+            First Name is required.
+          </span>
+          <span *ngIf="registrationForm.get('firstName').errors?.minlength">
+            First Name must contain 5 letters
+          </span>
+        </div>
+      </div>
+
+      <div class="field" appearance="fill">
+        <input type="text" formControlName="lastName" required placeholder="Last Name" />
+        <div *ngIf="registrationForm.get('lastName').invalid && (registrationForm.get('lastName').dirty || registrationForm.get('lastName').touched)" class="alert alert-danger">
+          <span *ngIf="registrationForm.get('lastName').errors?.required">
+            Last Name is required.
+          </span>
+          <span *ngIf="registrationForm.get('lastName').errors?.minlength">
+            Last Name must contain 5 letters
+          </span>
+        </div>
+      </div>
+
+      <div class="field" appearance="fill">
+        <input type="number" formControlName="phoneNo" required placeholder="Phone No" />
+        <div *ngIf="registrationForm.get('phoneNo').invalid && (registrationForm.get('phoneNo').dirty || registrationForm.get('phoneNo').touched)" class="alert alert-danger">
+          <span *ngIf="registrationForm.get('phoneNo').errors?.required">
+            Phone No is required.
+          </span>
+          <span *ngIf="registrationForm.get('phoneNo').errors?.minlength || registrationForm.get('phoneNo').errors?.maxlength">
+            Phone No must contain 10 digit
+          </span>
+        </div>
+      </div>
+
+      <div class="field" appearance="fill">
+        <select formControlName="country" required placeholder="country">
+          <option *ngFor="let con of countryList" [value]="con">
+            {{ con }}
+          </option>
+        </select>
+        <div *ngIf="registrationForm.get('country').invalid && (registrationForm.get('country').dirty || registrationForm.get('country').touched)" class="alert alert-danger">
+          <span *ngIf="registrationForm.get('country').errors?.required">
+            Country is required.
+          </span>
+        </div>
+      </div>
+
+      <div class="btn-ctr">
+        <button mat-button mat-raised-button color="primary">Register</button>
+      </div>
+    </form>
+  </div>
+</div>
